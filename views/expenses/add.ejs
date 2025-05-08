@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+
+<div class="content-container">
+    <div class="content-header">
+        <h1>Add Expense</h1>
+        <a href="/expenses" class="btn btn-secondary">Back to Expenses</a>
+    </div>
+    
+    <div class="form-container">
+        <form action="/expenses/add" method="POST">
+            <div class="form-group">
+                <label for="category_id">Category *</label>
+                <select id="category_id" name="category_id" required>
+                    <option value="">Select Category</option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category.id %>" <%= locals.category_id && category.id == category_id ? 'selected' : '' %>>
+                            <%= category.name %>
+                        </option>
+                    <% }) %>
+                </select>
+                <a href="/expenses/categories/add" class="link-small">+ Add New Category</a>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Amount ($) *</label>
+                <input type="number" step="0.01" min="0.01" id="amount" name="amount" value="<%= typeof amount != 'undefined' ? amount : '' %>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="3"><%= typeof description != 'undefined' ? description : '' %></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Date *</label>
+                <input type="date" id="date" name="date" value="<%= typeof date != 'undefined' ? date : new Date().toISOString().split('T')[0] %>" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Add Expense</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

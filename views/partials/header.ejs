@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | Personal Finance Tracker</title>
+    <!-- CSS (minimal styling) -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if(typeof user != 'undefined'){ %>
+            <%- include('./navbar') %>
+        <% } %>
+        
+        <!-- Flash messages -->
+        <% if(typeof errors != 'undefined'){ %>
+            <% errors.forEach(function(error) { %>
+                <div class="alert alert-danger">
+                    <%= error.msg %>
+                </div>
+            <% }); %>
+        <% } %>
+        
+        <% if(success_msg != ''){ %>
+            <div class="alert alert-success">
+                <%= success_msg %>
+            </div>
+        <% } %>
+        
+        <% if(error_msg != ''){ %>
+            <div class="alert alert-danger">
+                <%= error_msg %>
+            </div>
+        <% } %>

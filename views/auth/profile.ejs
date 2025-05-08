@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<div class="content-container">
+    <h1>Profile</h1>
+    <div class="profile-card">
+        <p><strong>Name:</strong> <%= user.name %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <p><strong>Member since:</strong> <%= new Date(user.created_at).toLocaleDateString() %></p>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

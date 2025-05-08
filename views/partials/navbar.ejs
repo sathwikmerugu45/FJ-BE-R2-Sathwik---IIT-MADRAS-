@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a href="/dashboard">Personal Finance Tracker</a>
+    </div>
+    <ul class="navbar-menu">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/income">Income</a></li>
+        <li><a href="/expenses">Expenses</a></li>
+        <li><a href="/reports">Reports</a></li>
+        <li class="navbar-dropdown">
+            <a href="#"><%= user.name %> ▼</a>
+            <div class="dropdown-content">
+                <a href="/profile">Profile</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
